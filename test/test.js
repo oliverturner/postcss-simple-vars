@@ -79,4 +79,7 @@ describe('postcss-simple-vars', function () {
         test('a{ zero: $zero }', 'a{ zero: 0 }', { variables: { zero: 0 } });
     });
 
+    it('allows dot access to values in deeply nested objects', function () {
+        test('a{ color: $foo.bar.baz }', 'a{ color: hotpink }', { variables: {foo: {bar: {baz: 'hotpink'}}} });
+    });
 });
